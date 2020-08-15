@@ -1243,6 +1243,17 @@ class Trainer(
         verbose: bool = True,
         datamodule: Optional[LightningDataModule] = None,
     ):
+        
+        return self.fit(model)
+
+    def test_old(
+        self,
+        model: Optional[LightningModule] = None,
+        test_dataloaders: Optional[Union[DataLoader, List[DataLoader]]] = None,
+        ckpt_path: Optional[str] = 'best',
+        verbose: bool = True,
+        datamodule: Optional[LightningDataModule] = None,
+    ):
         r"""
 
         Separates from fit to make sure you never run on your test set until you want to.
