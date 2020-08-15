@@ -1323,7 +1323,7 @@ class Trainer(
 
         self.teardown('test')
 
-        if self.global_rank > 0:
+        if self.global_rank == 0:
             # clean up dist group
             if torch_distrib.is_available() and torch_distrib.is_initialized():
                 print('destroy on rank ', self.global_rank, os.getpid())
